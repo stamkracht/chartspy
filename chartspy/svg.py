@@ -13,7 +13,6 @@ def create_element(tag_name, **kwargs):
 
 
 class SVG(object):
-
     def __init__(self, width=600, height=400):
         self.width = width
         self.height = height
