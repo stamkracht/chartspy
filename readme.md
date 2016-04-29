@@ -1,4 +1,4 @@
-# SVG based chart package for python (WIP)
+# SVG based chart package for python (WIP) ![](https://travis-ci.org/stamkracht/chartspy.svg)
 
 This goal of this package is an easy to use backend chart generator.
 
