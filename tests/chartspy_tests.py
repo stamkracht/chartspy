@@ -1,7 +1,7 @@
 import hashlib
 import os
 import random
-from io import StringIO
+from io import BytesIO
 
 from nose.tools import *
 
@@ -22,9 +22,9 @@ def test_basic_bar_chart():
             ]
     bar_chart = create_bar_chart(svg, data, bar_spacing=10, margin=50)
 
-    stringio = StringIO()
-    bar_chart.to_png(stringio)
-    hex = hashlib.md5(stringio.getvalue()).hexdigest()
+    bytesio = BytesIO()
+    bar_chart.to_png(bytesio)
+    hex = hashlib.md5(bytesio.getvalue()).hexdigest()
     ref_hex = hashlib.md5(
         open(os.path.join(os.path.dirname(__file__), 'reference_bar_chart.png'), 'r').read()).hexdigest()
     eq_(ref_hex, hex)
