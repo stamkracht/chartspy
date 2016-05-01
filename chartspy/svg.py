@@ -2,12 +2,13 @@ import xml.dom.minidom
 from xml.etree.ElementTree import Element, tostring
 
 import cairosvg
+from six import iteritems
 
 
 def create_element(tag_name, **kwargs):
     attributes = {
         key if key != 'klass' else 'class': str(value)
-        for key, value in kwargs.iteritems()
+        for key, value in iteritems(kwargs)
         }
     return Element(tag_name, attributes)
 
