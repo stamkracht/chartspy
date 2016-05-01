@@ -9,6 +9,7 @@ setup(name='chartspy',
       license='MIT',
       packages=['chartspy'],
       install_requires=[
-          'cairosvg',
+            'cairosvg',
+            'six'
       ],
       zip_safe=False)
