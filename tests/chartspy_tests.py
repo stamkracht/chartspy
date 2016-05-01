@@ -12,54 +12,16 @@ from chartspy.svg import SVG
 def test_basic_bar_chart():
     svg = SVG(800, 600)
 
+
     random.seed('8==D~')
-    bar_chart = create_bar_chart(svg, [
-        {
-            'value': random.randint(5, 25),
-            'label': '10-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '10-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '11-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '12-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '10-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '10-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '10-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '11-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-        {
-            'value': random.randint(5, 25),
-            'label': '12-10-2015',
-            'fill_color': "#{}".format("".join(map(str, random.sample(range(1, 9), 6))))
-        },
-    ], bar_spacing=10, margin=50)
+    data = [{
+                'value': x+1,
+                'label': str('label {}').format(x),
+                'fill_color': "#{}".format('ff0000' if x%2 == 0 else '0000ff')
+            }
+            for x in range(0, 10)
+    ]
+    bar_chart = create_bar_chart(svg, data, bar_spacing=10, margin=50)
 
     stringio = StringIO()
     bar_chart.to_png(stringio)
