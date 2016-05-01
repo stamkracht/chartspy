@@ -1,4 +1,5 @@
 import hashlib
+import os
 import random
 from StringIO import StringIO
 
@@ -63,5 +64,5 @@ def test_basic_bar_chart():
     stringio = StringIO()
     bar_chart.to_png(stringio)
     hex = hashlib.md5(stringio.getvalue()).hexdigest()
-    ref_hex = hashlib.md5(open('tests/reference_bar_chart.png').read()).hexdigest()
+    ref_hex = hashlib.md5(open(os.path.join(os.path.dirname(__file__), 'reference_bar_chart.png'), 'r').read()).hexdigest()
     eq_(ref_hex, hex)
