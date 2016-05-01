@@ -32,11 +32,8 @@ class SVG(object):
     def extend(self, elms):
         self._root.extend(elms)
 
-    def __str__(self):
-        return tostring(self._root)
-
     def to_png(self, iowriter):
-        cairosvg.svg2png(bytestring=str(self), write_to=iowriter)
+        cairosvg.svg2png(bytestring=tostring(self._root), write_to=iowriter)
 
     def toprettyxml(self):
-        return xml.dom.minidom.parseString(str(self)).toprettyxml()
+        return xml.dom.minidom.parseString(tostring(self._root)).toprettyxml()
